@@ -7,7 +7,21 @@ Rails.application.routes.draw do
   post '/main' , to: "main#menu"
   post '/profile' ,to: "main#profile"
   get '/profile' ,to: "main#profile"
+  post '/my_market' ,to: "main#my_market"
+  get '/my_market' ,to: "main#my_market"
+  post '/purchase_history' ,to: "main#purchase_history"
+  get '/purchase_history' ,to: "main#purchase_history"
+  post '/sale_history' ,to: "main#sale_history"
+  get '/sale_history' ,to: "main#sale_history"
+  post '/my_inventory' ,to: "main#my_inventory"
+  get '/my_inventory' ,to: "main#my_inventory"
+  post '/top_seller' ,to: "main#top_seller"
+  get '/top_seller' ,to: "main#top_seller"
+  
+  
+  
   post "/main/change_password" ,to: "main#change_password"
+  
   resources :markets
   resources :inventories
   resources :items

@@ -39,4 +39,19 @@ class MainController < ApplicationController
       redirect_to '/profile', notice: "failed to change password"
     end
   end
+
+  def my_market
+  end
+
+  def purchase_history
+  end
+
+  def sale_history
+  end
+
+  def my_inventory
+  end
+
+  def top_seller
+  end
 end
