@@ -1,0 +1,22 @@
+<h3>Name : <%= @name %> </h3>
+<br>
+<h3>Email : <%= @email %></h3>
+<br>
+<h3>User type : <%= @type %></h3>
+<br>
+<%= form_with url: "/main/change_password", method: :post do |form| %>
+    <%= form.label :old_password ,"Old password : " %>
+    <%= form.text_field :old_password %>
+    <br>
+    <br>
+    <%= form.label :new_password ,"New password : " %>
+    <%= form.text_field :new_password %>
+    <br>
+    <%= form.submit "Confirm changing password" %>
+<% end %>
+<br>
+<form method="get" action="/main" class="button_to">
+    <div><input value="Back" type="submit" /></div>
+</form>
+
+

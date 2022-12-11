@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   get 'main/create'
   get '/login' , to: "main#login"
   post 'main/create'
+  get '/main'  , to: "main#menu"
+  post '/main' , to: "main#menu"
+  post '/profile' ,to: "main#profile"
+  get '/profile' ,to: "main#profile"
+  post "/main/change_password" ,to: "main#change_password"
   resources :markets
   resources :inventories
   resources :items

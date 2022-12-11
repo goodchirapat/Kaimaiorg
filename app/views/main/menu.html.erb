@@ -1,0 +1,30 @@
+<% if session[:type] %>
+                <form method="get" action="/profile" class="button_to">
+                    <div><input value="Profile" type="submit" /></div>
+                    </form>
+                <br>
+<% end %>
+<% if session[:type]==0 || session[:type]==1 %>
+                <td><%= button_to "My Market", users_path, params:{} %></td>
+                <br>
+<% end %>
+
+<% if session[:type]==0 || session[:type]==1 %>
+                <td><%= button_to "Purchase History", users_path, params:{} %></td>
+                <br>
+<% end %>
+
+<% if session[:type]==0 || session[:type]==2 %>
+                <td><%= button_to "Sale History", users_path, params:{} %></td>
+                <br>
+<% end %>
+
+<% if session[:type]==0 || session[:type]==2 %>
+                <td><%= button_to "My Inventory", users_path, params:{} %></td>
+                <br>
+<% end %>
+
+<% if session[:type]==0 || session[:type]==2 %>
+                <td><%= button_to "Top seller", users_path, params:{} %></td>
+                <br>
+<% end %>
