@@ -1,3 +1,27 @@
+<style>
+table, th, td{
+    border:1px solid black;
+}
+</style>
+<table>
+    <th>Seller</th>
+    <th>Item</th>
+    <th>price</th>
+    <th>stock</th>
+    <th>Time</th>
+    <% @inventory.all.each do |inv| %>
+        <% @i = Item.where(id:inv.item_id).first %>
+        <tr>
+            <td><%= inv.seller.name %></td>
+            <td><%= @i.name %></td>
+            <td><%= inv.price %></td>
+            <td><%= inv.qty %></td>
+            <td><%= inv.created_at  %></td>
+        </tr>
+    <%end%>
+</table>
+
+
 <form method="get" action="/main" class="button_to">
     <div><input value="Back" type="submit" /></div>
 </form>

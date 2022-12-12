@@ -1,3 +1,30 @@
+<style>
+table, th, td{
+    border:1px solid black;
+}
+</style>
+<table>
+    <th>Item</th>
+    <th>Category</th>
+    <th>price</th>
+    <th>stock</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <% @user.markets.each do |m| %>
+        <% @i = Item.where(id:m.item_id).first %>
+        <tr>
+            <td><%= @i.name %></td>
+            <td><%= @i.category %></td>
+            <td><%= m.price %></td>
+            <td><%= m.stock %></td>
+            <td><%= link_to 'Edit', '/markets/'+m.id.to_s+'/edit'  %></td>
+            <td><%= button_to "Delete", m, method: :delete %></td>
+        </tr>
+    <%end%>
+</table>
+<%=link_to 'NEW', '/markets/new'  %>
+
+
 <form method="get" action="/main" class="button_to">
     <div><input value="Back" type="submit" /></div>
 </form>

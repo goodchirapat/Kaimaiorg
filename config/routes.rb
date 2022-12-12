@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post 'main/create'
   get '/main'  , to: "main#menu"
   post '/main' , to: "main#menu"
+  get 'main/buy_qty' , to: 'main#buy_qty'
+  post 'main/buy'
   post '/profile' ,to: "main#profile"
   get '/profile' ,to: "main#profile"
   post '/my_market' ,to: "main#my_market"
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   post '/my_inventory' ,to: "main#my_inventory"
   get '/my_inventory' ,to: "main#my_inventory"
   post '/top_seller' ,to: "main#top_seller"
+  post 'main/top_seller'
+  get '/top_seller_filter' ,to: "main#top_seller_filter"
   get '/top_seller' ,to: "main#top_seller"
   
   

@@ -1,0 +1,27 @@
+<style>
+table, th, td{
+    border:1px solid black;
+}
+</style>
+<table>
+    <th>Seller Name </th>
+    <th>Item</th>
+    <th>Category</th>
+    <th>price</th>
+    <th>stock</th>
+    <tr>
+        <td><%= @seller.name %></td>
+        <td><%= @i.name %></td>
+        <td><%= @i.category %></td>
+        <td><%= @market.price %></td>
+        <td><%= @market.stock %></td>
+    </tr>
+</table>
+<br>
+<%= form_with url: "/main/buy", method: :post do |form| %>
+    <%= hidden_field_tag 'mid', @market.id.to_s  %>
+    <%= form.label :Quantity,"Quantity: " %>
+    <%= form.text_field :qty %>
+    <br>
+    <%= form.submit "Confirm buying" %>
+<% end %>

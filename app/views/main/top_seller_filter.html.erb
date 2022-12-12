@@ -1,0 +1,10 @@
+<%= form_with url: "/top_seller", method: :get do |form| %>
+    <%= form.label :Start_date ,"Start date : " %>
+    <%= form.text_field :start %>
+    <br>
+    <br>
+    <%= form.label :Stop_date ,"Stop date : " %>
+    <%= form.text_field :stop %>
+    <br>
+    <%= form.submit "Search" %>
+<% end %>

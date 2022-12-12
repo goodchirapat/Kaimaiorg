@@ -6,11 +6,11 @@
 <br>
 <%= form_with url: "/main/change_password", method: :post do |form| %>
     <%= form.label :old_password ,"Old password : " %>
-    <%= form.text_field :old_password %>
+    <%= form.password_field :old_password %>
     <br>
     <br>
     <%= form.label :new_password ,"New password : " %>
-    <%= form.text_field :new_password %>
+    <%= form.password_field :new_password %>
     <br>
     <%= form.submit "Confirm changing password" %>
 <% end %>

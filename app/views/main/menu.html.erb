@@ -1,7 +1,7 @@
 <% if session[:type] %>
                 <form method="get" action="/profile" class="button_to">
                     <div><input value="Profile" type="submit" /></div>
-                    </form>
+                </form>
                 <br>
 <% end %>
 <% if session[:type]==0 || session[:type]==1 %>
@@ -10,31 +10,39 @@
                     </form>
                 <br>
 <% end %>
-
 <% if session[:type]==0 || session[:type]==1 %>
                 <form method="get" action="/purchase_history" class="button_to">
                     <div><input value="Purchase History" type="submit" /></div>
                     </form>
                 <br>
 <% end %>
-
 <% if session[:type]==0 || session[:type]==2 %>
                 <form method="get" action="/sale_history" class="button_to">
                     <div><input value="Sale History" type="submit" /></div>
                     </form>
                 <br>
 <% end %>
-
 <% if session[:type]==0 || session[:type]==2 %>
                 <form method="get" action="/my_inventory" class="button_to">
                     <div><input value="My Inventory" type="submit" /></div>
                     </form>
                 <br>
 <% end %>
-
 <% if session[:type]==0 || session[:type]==2 %>
-                <form method="get" action="/top_seller" class="button_to">
+                <form method="get" action="/top_seller_filter" class="button_to">
                     <div><input value="Top seller" type="submit" /></div>
+                    </form>
+                <br>
+<% end %>
+<% if session[:type]==0  %>
+                <form method="get" action="/users" class="button_to">
+                    <div><input value="Edit Users" type="submit" /></div>
+                    </form>
+                <br>
+<% end %>
+<% if session[:type]==0  %>
+                <form method="get" action="/items" class="button_to">
+                    <div><input value="Edit Items" type="submit" /></div>
                     </form>
                 <br>
 <% end %>
