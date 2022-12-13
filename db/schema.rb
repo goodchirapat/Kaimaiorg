@@ -44,9 +44,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_090902) do
     t.integer "qty"
     t.integer "buyer_id"
     t.integer "seller_id"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "item_id", null: false
     t.index ["buyer_id"], name: "index_inventories_on_buyer_id"
     t.index ["item_id"], name: "index_inventories_on_item_id"
     t.index ["seller_id"], name: "index_inventories_on_seller_id"
