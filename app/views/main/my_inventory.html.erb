@@ -1,11 +1,17 @@
+
+
+<h1>My Inventory</h1>
+
+
 <style>
 table, th, td{
     border:1px solid black;
 }
 </style>
-<table>
+<table class="table table-dark table-hover">
     <th>Item</th>
     <th>Category</th>
+    <th>Picture</th>
     <th>price</th>
     <th>stock</th>
     <th>Edit</th>
@@ -15,16 +21,18 @@ table, th, td{
         <tr>
             <td><%= @i.name %></td>
             <td><%= @i.category %></td>
+            <% if(@i.picture.attached?) %>
+                <td><%= image_tag @i.picture.variant(:thumb100) %></td>
+            <% else %>
+                <td>This item does not have a picture</td>
+            <% end %>
             <td><%= m.price %></td>
             <td><%= m.stock %></td>
-            <td><%= link_to 'Edit', '/markets/'+m.id.to_s+'/edit'  %></td>
-            <td><%= button_to "Delete", m, method: :delete %></td>
+            <td><%= link_to 'Edit', '/markets/'+m.id.to_s+'/edit', class:"btn btn-primary"  %></td>
+            <td><%= button_to "Delete", m, method: :delete, class:"btn btn-danger" %></td>
         </tr>
     <%end%>
 </table>
-<%=link_to 'NEW', '/markets/new'  %>
+<%=link_to 'NEW', '/markets/new', class:"btn btn-warning"  %>
+<%=link_to 'BACK', '/main', class:"btn btn-dark"  %>
 
-
-<form method="get" action="/main" class="button_to">
-    <div><input value="Back" type="submit" /></div>
-</form>

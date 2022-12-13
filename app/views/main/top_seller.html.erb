@@ -1,6 +1,6 @@
 
 
-<table id="qty">
+<table id="qty" class="table table-dark table-hover">
 <thead>
     <th>Seller</th>
     <th>qty</th>
@@ -15,7 +15,7 @@
 </tbody>
 </table>
 
-<table id="price">
+<table id="price" class="table table-dark table-hover">
 <thead>
     <th>Seller</th>
     <th>Income</th>
@@ -37,6 +37,4 @@ $(document).ready(function () {
             })
 });
 </script>
-<form method="get" action="/main" class="button_to">
-    <div><input value="Back" type="submit" /></div>
-</form>
+<%=link_to 'BACK', '/main', class:"btn btn-dark"  %>

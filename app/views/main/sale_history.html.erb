@@ -1,11 +1,13 @@
+<h1>Sales History</h1>
 <style>
 table, th, td{
     border:1px solid black;
 }
 </style>
-<table>
+<table class="table table-dark table-hover">
     <th>Buyer</th>
     <th>Item</th>
+    <th>Picture</th>
     <th>price</th>
     <th>stock</th>
     <th>Time</th>
@@ -14,6 +16,11 @@ table, th, td{
         <tr>
             <td><%= inv.buyer.name %></td>
             <td><%= @i.name %></td>
+            <% if(@i.picture.attached?) %>
+                <td><%= image_tag @i.picture.variant(:thumb100) %></td>
+            <% else %>
+                <td>This item does not have a picture</td>
+            <% end %>
             <td><%= inv.price %></td>
             <td><%= inv.qty %></td>
             <td><%= inv.created_at  %></td>
@@ -22,6 +29,4 @@ table, th, td{
 </table>
 
 
-<form method="get" action="/main" class="button_to">
-    <div><input value="Back" type="submit" /></div>
-</form>
+<%=link_to 'BACK', '/main', class:"btn btn-dark" %>

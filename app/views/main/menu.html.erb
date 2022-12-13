@@ -1,48 +1,58 @@
+<div class="text-center">  
+<html>
+<head>
+<style>
+  h1 {color:black;}
+</style>
+</head>
+<body>
+
+<h1>MENU</h1>
+
+</body>
+</html>
+<body style="background-color:powderblue;">
 <% if session[:type] %>
-                <form method="get" action="/profile" class="button_to">
-                    <div><input value="Profile" type="submit" /></div>
-                </form>
+                <%=link_to 'Profile', '/profile', class:"btn btn-warning"  %>
+                <br>
                 <br>
 <% end %>
 <% if session[:type]==0 || session[:type]==1 %>
-                <form method="get" action="/my_market" class="button_to">
-                    <div><input value="My Market" type="submit" /></div>
-                    </form>
+                <%=link_to 'My Market', '/my_market', class:"btn btn-warning"  %>
+                <br>
+                <br>
+<% end %>
+<% if session[:type]==0 || session[:type]==2 %>
+                <%=link_to 'My Inventory', '/my_inventory', class:"btn btn-warning"  %>
+                <br>
                 <br>
 <% end %>
 <% if session[:type]==0 || session[:type]==1 %>
-                <form method="get" action="/purchase_history" class="button_to">
-                    <div><input value="Purchase History" type="submit" /></div>
-                    </form>
+                <%=link_to 'Purchase History', '/purchase_history', class:"btn btn-warning"  %>
+                <br>
                 <br>
 <% end %>
 <% if session[:type]==0 || session[:type]==2 %>
-                <form method="get" action="/sale_history" class="button_to">
-                    <div><input value="Sale History" type="submit" /></div>
-                    </form>
+                <%=link_to 'Sale History', '/sale_history', class:"btn btn-warning"  %>
+                <br>
                 <br>
 <% end %>
+
 <% if session[:type]==0 || session[:type]==2 %>
-                <form method="get" action="/my_inventory" class="button_to">
-                    <div><input value="My Inventory" type="submit" /></div>
-                    </form>
+                <%=link_to 'Top seller', '/top_seller_filter', class:"btn btn-warning"  %>
                 <br>
-<% end %>
-<% if session[:type]==0 || session[:type]==2 %>
-                <form method="get" action="/top_seller_filter" class="button_to">
-                    <div><input value="Top seller" type="submit" /></div>
-                    </form>
                 <br>
 <% end %>
 <% if session[:type]==0  %>
-                <form method="get" action="/users" class="button_to">
-                    <div><input value="Edit Users" type="submit" /></div>
-                    </form>
+                <%=link_to 'Edit Users', '/users', class:"btn btn-warning"  %>
+                <br>
                 <br>
 <% end %>
 <% if session[:type]==0  %>
-                <form method="get" action="/items" class="button_to">
-                    <div><input value="Edit Items" type="submit" /></div>
-                    </form>
+                <%=link_to 'Edit Items', '/items', class:"btn btn-warning"  %>
+                <br>
                 <br>
 <% end %>
+<%=link_to 'LOG OUT', '/login', class:"btn btn-danger"  %>
+</body>
+</div>  

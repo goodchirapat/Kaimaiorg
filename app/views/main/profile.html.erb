@@ -1,22 +1,30 @@
-<h3>Name : <%= @name %> </h3>
+<body style="background-color:powderblue;">
+<div class="text-center">             
+<h1>My Profile</h1>
+<h3 class="text-primary">Name : <%= @name %> </h3>
 <br>
-<h3>Email : <%= @email %></h3>
+<h3 class="text-primary">Email : <%= @email %></h3>
 <br>
-<h3>User type : <%= @type %></h3>
+<h3 class="text-primary">User type : <%= @type %></h3>
 <br>
 <%= form_with url: "/main/change_password", method: :post do |form| %>
     <%= form.label :old_password ,"Old password : " %>
-    <%= form.password_field :old_password %>
+    <%= form.password_field :old_password, :required => true %>
     <br>
     <br>
     <%= form.label :new_password ,"New password : " %>
-    <%= form.password_field :new_password %>
+    <%= form.password_field :new_password, :required => true %>
     <br>
-    <%= form.submit "Confirm changing password" %>
+    <br>
+    <%= form.submit "Confirm changing password", class:"btn btn-success" %>
 <% end %>
+</div>
 <br>
-<form method="get" action="/main" class="button_to">
-    <div><input value="Back" type="submit" /></div>
-</form>
+
+<%=link_to 'BACK', '/main', class:"btn btn-dark", style:"float: right;" %>
+</body>
+    
+    
+    
 
 

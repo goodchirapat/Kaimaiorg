@@ -1,9 +1,19 @@
+<h1>My Market</h1>
+<% if params[:buyzero] %>
+    <div class="alert alert-danger" role="alert">
+        The stock is not enough!
+    </div>
+<% elsif params[:buysuccess] %>
+    <div class="alert alert-success" role="alert">
+        Purchase success!
+    </div>
+<%end%>
 
-
-<table id="my_market" class="display" style="width:100%">
+<table id="my_market" class="table table-dark table-hover" style="width:100%">
 <thead>
     <th>Item</th>
     <th>Category</th>
+    <th>Picture</th>
     <th>price</th>
     <th>stock</th>
     <th></th>
@@ -14,9 +24,14 @@
         <tr>
             <td><%= @i.name %></td>
             <td><%= @i.category %></td>
+            <% if(@i.picture.attached?) %>
+                <td><%= image_tag @i.picture.variant(:thumb100) %></td>
+            <% else %>
+                <td>This item does not have a picture</td>
+            <% end %>
             <td><%= m.price %></td>
             <td><%= m.stock %></td>
-            <td><%= link_to 'Buy', '/main/buy_qty?mid='+m.id.to_s  %></td>
+            <td><%= link_to 'Buy', '/main/buy_qty?mid='+m.id.to_s, class:"btn btn-primary"  %></td>
         </tr>
     <%end%>
 </tbody>
@@ -36,7 +51,5 @@ $(document).ready(function () {
 </script>
 
 
-<form method="get" action="/main" class="button_to">
-    <div><input value="Back" type="submit" /></div>
-</form>
+<%=link_to 'BACK', '/main', class:"btn btn-dark" %>
 

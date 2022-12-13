@@ -78,7 +78,7 @@ class MainController < ApplicationController
   def buy
     @market=Market.where(id:params[:mid]).first
     if @market.stock-params[:qty].to_i <0
-      redirect_to '/my_market' , notice: "Not enough stock!"
+      redirect_to '/my_market'+ '?buyzero=true'
     else
       @market.stock=@market.stock-params[:qty].to_i
       @market.save
@@ -89,7 +89,7 @@ class MainController < ApplicationController
       inv.price=@market.price
       inv.qty=params[:qty]
       inv.save
-      redirect_to '/my_market' , notice: "Bought!"
+      redirect_to '/my_market'+ '?buysuccess=true'
     end
 
   end

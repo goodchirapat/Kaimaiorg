@@ -1,10 +1,13 @@
+<h1>Top Seller</h1>
 <%= form_with url: "/top_seller", method: :get do |form| %>
     <%= form.label :Start_date ,"Start date : " %>
-    <%= form.text_field :start %>
+    <%= form.text_field :start, :required => true %>
     <br>
     <br>
     <%= form.label :Stop_date ,"Stop date : " %>
-    <%= form.text_field :stop %>
+    <%= form.text_field :stop, :required => true %>
     <br>
-    <%= form.submit "Search" %>
+    <%= form.submit "Search", class:"btn btn-info" %>
 <% end %>
+
+<%=link_to 'BACK', '/main', class:"btn btn-dark"  %>

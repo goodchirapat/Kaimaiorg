@@ -15,7 +15,10 @@
   <% if session[:type]==0 %>
     <%= form.label :user_id, style: "display: block" %>
     <%= form.text_field :user_id %>
+  <% else %>
+    <%= form.hidden_field :user_id, value:session[:id] %>
   <% end %>
+  
   </div>
 
   <div>

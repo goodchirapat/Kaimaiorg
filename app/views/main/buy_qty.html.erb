@@ -3,7 +3,7 @@ table, th, td{
     border:1px solid black;
 }
 </style>
-<table>
+<table class="table table-dark table-hover">
     <th>Seller Name </th>
     <th>Item</th>
     <th>Category</th>
@@ -23,5 +23,6 @@ table, th, td{
     <%= form.label :Quantity,"Quantity: " %>
     <%= form.text_field :qty %>
     <br>
-    <%= form.submit "Confirm buying" %>
+    <%= form.submit "Confirm buying", class:"btn btn-success" %>
 <% end %>
+<%=link_to 'BACK', '/my_market', class:"btn btn-dark" %>
