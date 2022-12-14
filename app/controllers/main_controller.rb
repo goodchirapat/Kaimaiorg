@@ -10,29 +10,36 @@ class MainController < ApplicationController
       session[:id]= u.id
       session[:type]=u.user_type
     else
-      redirect_to '/login', notice: "wrong login"
+      redirect_to '/login', notice: "wrong username or password"
     end
   end
 
   def menu
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    end
   end
 
   def profile
-    @u=User.where(id:session[:id]).first
-    @name= @u.name
-    @email= @u.email
-    if session[:type]==0 
-      @type="admin"
-    elsif session[:type]==1  
-      @type="buyer"
-    else 
-      @type="seller"
+    if session[:logged_in]
+      @u=User.where(id:session[:id]).first
+      @name= @u.name
+      @email= @u.email
+      if session[:type]==0 
+        @type="admin"
+      elsif session[:type]==1  
+        @type="buyer"
+      else 
+        @type="seller"
+      end
+    else
+      redirect_to "/login", notice: "You must login first"
     end
   end
 
   def change_password
     @u=User.where(id:session[:id]).first
-    if @u.authenticate(params[:old_password])
+    if @u.authenticate(params[:old_password]) && params[:new_password]!=""
       @u.password= params[:new_password]
       @u.save
       redirect_to '/profile', notice: "password change success!"
@@ -41,8 +48,21 @@ class MainController < ApplicationController
     end
   end
 
+  def log_out
+    session[:logged_in] =false
+    session[:id]= nil
+    session[:type]=nil
+    redirect_to "/login"
+  end
+
   def my_market
-    @user=User.where(id:session[:id]).first
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    elsif session[:type]==2
+        redirect_to "/main", notice: "You can't access this page"
+    else
+      @user=User.where(id:session[:id]).first
+    end
   end
 
   def purchase_history

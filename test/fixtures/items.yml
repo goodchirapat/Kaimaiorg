@@ -1,11 +1,21 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  category: MyString
+pork:
+  name: pork
+  category: meat
   enable: 1
 
-two:
-  name: MyString
-  category: MyString
+shrimp:
+  name: shrimp
+  category: meat
+  enable: 1
+
+orange:
+  name: orange
+  category: fruit
+  enable: 1
+
+strawberry:
+  name: strawberry
+  category: fruit
   enable: 1

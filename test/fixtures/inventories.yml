@@ -1,9 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  buyer: two
+  seller: three
+  item: pork
   price: 1.5
   qty: 1
+ 
 
 two:
+  buyer: two
+  seller: three
+  item: shrimp
   price: 1.5
   qty: 1
+  

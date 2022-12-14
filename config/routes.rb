@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post 'main/top_seller'
   get '/top_seller_filter' ,to: "main#top_seller_filter"
   get '/top_seller' ,to: "main#top_seller"
+  get '/log_out' ,to: "main#log_out"
+  
+  
   
   
   
