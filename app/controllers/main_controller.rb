@@ -66,27 +66,55 @@ class MainController < ApplicationController
   end
 
   def purchase_history
-    @user=User.where(id:session[:id]).first
-    @inventory= @user.bought_items
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    elsif session[:type]==2
+        redirect_to "/main", notice: "You can't access this page"
+    else
+      @user=User.where(id:session[:id]).first
+      @inventory= @user.bought_items
+    end
   end
 
   def sale_history
-    @user=User.where(id:session[:id]).first
-    @inventory= @user.sold_items
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    elsif session[:type]==1
+        redirect_to "/main", notice: "You can't access this page"
+    else
+      @user=User.where(id:session[:id]).first
+      @inventory= @user.sold_items
+    end
   end
 
   def my_inventory
-    @user=User.where(id:session[:id]).first
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    elsif session[:type]==1
+        redirect_to "/main", notice: "You can't access this page"
+    else
+      @user=User.where(id:session[:id]).first
+    end
   end
 
   def top_seller_filter
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    elsif session[:type]==1
+        redirect_to "/main", notice: "You can't access this page"
+    end
   end
 
   def top_seller
-    @r=Inventory.where(created_at: Date.parse(params[:start])..Date.parse(params[:stop]))
-    @inventory=@r.group(:seller_id).sum(:qty)
-    @inventory2=@r.group(:seller_id).sum(:price)
-
+    if session[:logged_in]!=true
+      redirect_to "/login", notice: "You must login first"
+    elsif session[:type]==1
+        redirect_to "/main", notice: "You can't access this page"
+    else
+      @r=Inventory.where(created_at: Date.parse(params[:start])..Date.parse(params[:stop]))
+      @inventory=@r.group(:seller_id).sum(:qty)
+      @inventory2=@r.group(:seller_id).sum(:price)
+    end
   end
 
   def buy_qty

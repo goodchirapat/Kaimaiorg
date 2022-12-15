@@ -21,6 +21,7 @@
 <tbody>
     <% Market.all.each do |m| %>
         <% @i = Item.where(id:m.item_id).first %>
+        <%if @i.enable==1%>
         <tr>
             <td><%= @i.name %></td>
             <td><%= @i.category %></td>
@@ -33,6 +34,7 @@
             <td><%= m.stock %></td>
             <td><%= link_to 'Buy', '/main/buy_qty?mid='+m.id.to_s, class:"btn btn-primary"  %></td>
         </tr>
+        <%end%>
     <%end%>
 </tbody>
 </table>
